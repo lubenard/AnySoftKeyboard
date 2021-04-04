@@ -67,6 +67,7 @@ public abstract class AnySoftKeyboardSuggestions extends AnySoftKeyboardKeyboard
                 public void onDictionaryLoadingFailed(Dictionary dictionary, Throwable exception) {}
             };
     private static final CompletionInfo[] EMPTY_COMPLETIONS = new CompletionInfo[0];
+    @VisibleForTesting public static final long GET_SUGGESTIONS_DELAY = 5 * ONE_FRAME_DELAY;
 
     @VisibleForTesting
     final KeyboardUIStateHandler mKeyboardHandler = new KeyboardUIStateHandler(this);
@@ -547,6 +548,7 @@ public abstract class AnySoftKeyboardSuggestions extends AnySoftKeyboardKeyboard
     }
 
     private void postRestartWordSuggestion() {
+        mKeyboardHandler.removeMessages(KeyboardUIStateHandler.MSG_UPDATE_SUGGESTIONS);
         mKeyboardHandler.removeMessages(KeyboardUIStateHandler.MSG_RESTART_NEW_WORD_SUGGESTIONS);
         mKeyboardHandler.sendEmptyMessageDelayed(
                 KeyboardUIStateHandler.MSG_RESTART_NEW_WORD_SUGGESTIONS, 10 * ONE_FRAME_DELAY);
@@ -1022,6 +1024,8 @@ public abstract class AnySoftKeyboardSuggestions extends AnySoftKeyboardKeyboard
     }
 
     public void performRestartWordSuggestion(final InputConnection ic) {
+        mKeyboardHandler.removeMessages(KeyboardUIStateHandler.MSG_RESTART_NEW_WORD_SUGGESTIONS);
+        mKeyboardHandler.removeMessages(KeyboardUIStateHandler.MSG_UPDATE_SUGGESTIONS);
         // I assume ASK DOES NOT predict at this moment!
 
         // 2) predicting and moved outside the word - abort predicting, update
@@ -1308,27 +1312,12 @@ public abstract class AnySoftKeyboardSuggestions extends AnySoftKeyboardKeyboard
                                                 word)));
     }
 
+    /** posts an update suggestions request to the messages queue. Removes any previous request. */
     protected void postUpdateSuggestions() {
-        postUpdateSuggestions(5 * ONE_FRAME_DELAY);
-    }
-
-    /**
-     * posts an update suggestions request to the messages queue. Removes any previous request.
-     *
-     * @param delay negative value will cause the call to be done now, in this thread.
-     */
-    protected void postUpdateSuggestions(long delay) {
         mKeyboardHandler.removeMessages(KeyboardUIStateHandler.MSG_UPDATE_SUGGESTIONS);
-        if (delay > 0) {
-            mKeyboardHandler.sendMessageDelayed(
-                    mKeyboardHandler.obtainMessage(KeyboardUIStateHandler.MSG_UPDATE_SUGGESTIONS),
-                    delay);
-        } else if (delay == 0) {
-            mKeyboardHandler.sendMessage(
-                    mKeyboardHandler.obtainMessage(KeyboardUIStateHandler.MSG_UPDATE_SUGGESTIONS));
-        } else {
-            performUpdateSuggestions();
-        }
+        mKeyboardHandler.sendMessageDelayed(
+                mKeyboardHandler.obtainMessage(KeyboardUIStateHandler.MSG_UPDATE_SUGGESTIONS),
+                GET_SUGGESTIONS_DELAY);
     }
 
     protected boolean isPredictionOn() {
@@ -1344,6 +1333,8 @@ public abstract class AnySoftKeyboardSuggestions extends AnySoftKeyboardKeyboard
     }
 
     public void performUpdateSuggestions() {
+        mKeyboardHandler.removeMessages(KeyboardUIStateHandler.MSG_UPDATE_SUGGESTIONS);
+
         if (!isPredictionOn() || !mShowSuggestions) {
             clearSuggestions();
             return;
