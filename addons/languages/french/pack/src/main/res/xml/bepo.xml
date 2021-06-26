@@ -4,246 +4,93 @@
     xmlns:ask="http://schemas.android.com/apk/res-auto"
     android:keyWidth="10%p">
 
+    <!-- First row -->
     <Row>
-        <Key
-            android:codes="98"
-            android:keyEdgeFlags="left"
-            android:popupCharacters="|¦" />
-        <Key android:codes="233,232" />
-        <Key
-            android:codes="112"
-            android:popupCharacters="&amp;§" />
-        <Key
-            android:codes="111"
-            android:popupCharacters="ôœòóõöøőō" />
-        <Key android:codes="119" />
-        <Key android:codes="118" />
-        <Key android:codes="100" />
-        <Key android:codes="108" />
-        <Key android:codes="106" />
-        <Key
-            android:codes="122"
-            android:keyEdgeFlags="right" />
+        <Key android:codes="98"      android:keyLabel="b" android:popupCharacters="|¦" android:keyEdgeFlags="left" />
+        <Key android:codes="233,232" android:keyLabel="é"/>
+        <Key android:codes="112"     android:keyLabel="p" android:popupCharacters="&amp;§" />
+        <Key android:codes="111"     android:keyLabel="o" android:popupCharacters="ôœø" ask:hintLabel="ø"/>
+        <Key android:codes="119"     android:keyLabel="w" android:popupCharacters="" />
+        <Key android:codes="118"     android:keyLabel="v" android:popupCharacters="" />
+        <Key android:codes="100"     android:keyLabel="d" android:popupCharacters="" />
+        <Key android:codes="108"     android:keyLabel="l" android:popupCharacters=""/>
+        <Key android:codes="106"     android:keyLabel="j" android:popupCharacters="" />
+        <Key android:codes="122"     android:keyLabel="z" android:popupCharacters="" android:keyEdgeFlags="right" />
     </Row>
 
+    <!-- Second row -->
     <Row>
-        <Key
-            android:codes="97,224"
-            android:keyEdgeFlags="left"
-            android:popupCharacters="àâäæáãåąā" />
-        <Key
-            android:codes="117,249"
-            android:popupCharacters="ùüúûŭűµū" />
-        <Key
-            android:codes="105"
-            android:popupCharacters="ïîìíłī" />
+        <Key android:codes="97,224"  android:keyLabel="a" android:popupCharacters="àâæ" android:keyEdgeFlags="left" />
+        <Key android:codes="117,249" android:keyLabel="u" android:popupCharacters="úûµ" />
+        <Key android:codes="105"     android:keyLabel="i" android:popupCharacters="ïî" />
 
         <!-- The "é" character is directly accessible on Bépo -->
-        <Key
-            android:codes="101"
-            android:popupCharacters="èêë€ęē" />
-        <Key android:codes="99" />
-        <Key android:codes="116" />
-        <Key
-            android:codes="115"
-            android:popupCharacters="ßśŝš" /><!--ẞ lol-->
-        <Key
-            android:codes="114"
-            android:popupCharacters="®™" />
-        <Key
-            android:codes="110"
-            android:popupCharacters="ñ" />
-        <Key
-            android:codes="109"
-            android:keyEdgeFlags="right" />
+        <Key android:codes="101"     android:keyLabel="e" android:popupCharacters="èêë€" />
+        <Key android:codes="99"      android:keyLabel="c" android:popupCharacters="" />
+        <Key android:codes="116"     android:keyLabel="t" android:popupCharacters="" />
+        <Key android:codes="115"     android:keyLabel="s" android:popupCharacters="" />
+        <Key android:codes="114"     android:keyLabel="r" android:popupCharacters="®™" />
+        <Key android:codes="110"     android:keyLabel="n" android:popupCharacters="" />
+        <Key android:codes="109"     android:keyLabel="m" android:keyEdgeFlags="right" />
     </Row>
 
+    <!-- Third row -->
     <Row>
-        <Key
-            android:codes="-1"
-            android:isModifier="true"
-            android:isSticky="true"
-            android:keyEdgeFlags="left" />
-        <Key android:codes="121" />
-        <Key android:codes="120" />
-        <Key android:codes="107,8230" />
+        <!-- Shift key -->
+        <Key android:codes="-1" android:isModifier="true" android:isSticky="true" android:keyEdgeFlags="left" />
+        <Key android:codes="121"      android:keyLabel="y" android:popupCharacters=""/>
+        <Key android:codes="120"      android:keyLabel="x" android:popupCharacters=""/>
+        <Key android:codes="107,8230" android:keyLabel="k" android:popupCharacters=""/>
         <!-- — (em) – (en) _ -->
-        <Key
-            android:codes="45,8212"
-            android:popupCharacters="—–_" />
-        <Key android:codes="113,231" />
-        <Key android:codes="103" />
-        <Key android:codes="104" />
-        <Key android:codes="102" />
-        <Key
-            android:codes="-5"
-            android:isRepeatable="true"
-            android:keyEdgeFlags="right" />
+        <Key android:codes="45,8212"  android:keyLabel="-" android:popupCharacters="—–_" />
+        <Key android:codes="113,231"  android:keyLabel="q" android:popupCharacters=""/>
+        <Key android:codes="103"      android:keyLabel="g" android:popupCharacters=""/>
+        <Key android:codes="104"      android:keyLabel="h" android:popupCharacters=""/>
+        <Key android:codes="102"      android:keyLabel="f" android:popupCharacters=""/>
+        <!-- Delete key -->
+        <Key android:codes="-5" android:isRepeatable="true" android:keyEdgeFlags="right" />
     </Row>
-
 
     <!-- Generic bottom row -->
-    <Row
-        android:keyboardMode="@integer/keyboard_mode_normal"
-        android:rowEdgeFlags="bottom">
-        <Key
-            android:codes="-10"
-            android:keyWidth="10.5%p"
-            android:keyEdgeFlags="left" />
-
-        <Key
-            android:codes="63,33"
-            android:horizontalGap="2%p"
-            android:keyLabel="\?"
-            android:popupCharacters="!/@&amp;¿¡" />
-        <Key
-            android:codes="44,59"
-            android:keyLabel=","
-            android:popupCharacters=";()[]{}&lt;&gt;" />
-
-        <Key
-            android:codes="32"
-            android:horizontalGap="2.5%p"
-            android:keyWidth="25%p" />
-
-        <Key
-            android:codes="46,58"
-            android:horizontalGap="2.5%p"
-            android:keyLabel="."
-            android:popupCharacters=":…-_·" />
-
-        <Key
-            android:codes="39,34"
-            android:keyLabel="\'"
-            android:popupCharacters='"«»„“' />
-
-        <Key
-            android:codes="10"
-            android:horizontalGap="2.5%p"
-            android:keyWidth="15%p"
-            android:keyEdgeFlags="right"
-            ask:longPressCode="-100" />
-    </Row>
-    <Row
-        android:keyboardMode="@integer/keyboard_mode_im"
-        android:rowEdgeFlags="bottom">
-        <Key
-            android:codes="-10"
-            android:keyWidth="10.5%p"
-            android:keyEdgeFlags="left" />
-
-        <Key
-            android:codes="63,33"
-            android:horizontalGap="2%p"
-            android:keyLabel="\?"
-            android:popupCharacters="!/@&amp;¿¡" />
-        <Key
-            android:codes="44,59"
-            android:keyLabel=","
-            android:popupCharacters=";()[]{}&lt;&gt;" />
-
-        <Key
-            android:codes="32"
-            android:horizontalGap="2.5%p"
-            android:keyWidth="25%p" />
-
-        <Key
-            android:codes="46,58"
-            android:horizontalGap="2.5%p"
-            android:keyLabel="."
-            android:popupCharacters=":…-_·" />
-
-        <Key
-            android:codes="39,34"
-            android:keyLabel="\'"
-            android:popupCharacters='"«»„“' />
-
-        <Key
-            android:codes="10"
-            android:horizontalGap="2.5%p"
-            android:keyWidth="15%p"
-            android:keyEdgeFlags="right"
-            ask:longPressCode="-100" />
+    <Row android:keyboardMode="@integer/keyboard_mode_normal" android:rowEdgeFlags="bottom">
+        <Key android:codes="-10" android:keyWidth="10.5%p" android:keyEdgeFlags="left" />
+        <Key android:codes="63,33" android:horizontalGap="2%p" android:keyLabel="\?" android:popupCharacters="!/@&amp;" />
+        <Key android:codes="44,59" android:keyLabel="," android:popupCharacters=";()[]{}&lt;&gt;" />
+        <Key android:codes="32" android:horizontalGap="2.5%p" android:keyWidth="25%p" />
+        <Key android:codes="46,58" android:horizontalGap="2.5%p" android:keyLabel="." android:popupCharacters=":…-_·" />
+        <Key android:codes="39,34" android:keyLabel="\'" android:popupCharacters='"«»„“' />
+        <Key android:codes="10" android:horizontalGap="2.5%p" android:keyWidth="15%p" android:keyEdgeFlags="right" ask:longPressCode="-100" />
     </Row>
 
-    <Row
-        android:keyboardMode="@integer/keyboard_mode_url"
-        android:rowEdgeFlags="bottom">
-        <Key
-            android:codes="-9"
-            android:keyWidth="10.5%p"
-            android:keyEdgeFlags="left" />
-
-        <Key
-            android:codes="64"
-            android:horizontalGap="2%p"
-            android:keyLabel="\@"
-            android:popupCharacters="!/?&amp;" />
-        <Key
-            android:codes="58"
-            android:keyLabel=":"
-            android:popupCharacters=";" />
-
-        <Key
-            android:codes="32"
-            android:horizontalGap="2.5%p"
-            android:keyWidth="25%p" />
-
-        <Key
-            android:codes="46,58"
-            android:horizontalGap="2.5%p"
-            android:keyLabel="."
-            android:popupCharacters=",()'-_" />
-
-        <Key
-            android:codes="47"
-            android:keyLabel="/" />
-
-        <Key
-            android:codes="10"
-            android:horizontalGap="2.5%p"
-            android:keyWidth="15%p"
-            android:keyEdgeFlags="right"
-            ask:longPressCode="-100" />
-    </Row>
-    <Row
-        android:keyboardMode="@integer/keyboard_mode_email"
-        android:rowEdgeFlags="bottom">
-        <Key
-            android:codes="-9"
-            android:keyWidth="10.5%p"
-            android:keyEdgeFlags="left" />
-
-        <Key
-            android:codes="64"
-            android:horizontalGap="2%p"
-            android:keyLabel="\@"
-            android:popupCharacters="!/?&amp;" />
-        <Key
-            android:codes="58"
-            android:keyLabel=":"
-            android:popupCharacters=";" />
-
-        <Key
-            android:codes="32"
-            android:horizontalGap="2.5%p"
-            android:keyWidth="25%p" />
-
-        <Key
-            android:codes="46,58"
-            android:horizontalGap="2.5%p"
-            android:keyLabel="."
-            android:popupCharacters=",()'-_" />
-        <Key
-            android:codes="47"
-            android:keyLabel="/" />
-
-        <Key
-            android:codes="10"
-            android:horizontalGap="2.5%p"
-            android:keyWidth="15%p"
-            android:keyEdgeFlags="right"
-            ask:longPressCode="-100" />
+    <Row android:keyboardMode="@integer/keyboard_mode_im" android:rowEdgeFlags="bottom">
+        <Key android:codes="-10" android:keyWidth="10.5%p" android:keyEdgeFlags="left" />
+        <Key android:codes="63,33" android:horizontalGap="2%p" android:keyLabel="\?" android:popupCharacters="!/@&amp;¿¡" />
+        <Key android:codes="44,59" android:keyLabel="," android:popupCharacters=";()[]{}&lt;&gt;" />
+        <Key android:codes="32" android:horizontalGap="2.5%p" android:keyWidth="25%p" />
+        <Key android:codes="46,58" android:horizontalGap="2.5%p" android:keyLabel="." android:popupCharacters=":…-_·" />
+        <Key android:codes="39,34" android:keyLabel="\'" android:popupCharacters='"«»„“' />
+        <Key android:codes="10" android:horizontalGap="2.5%p" android:keyWidth="15%p" android:keyEdgeFlags="right" ask:longPressCode="-100" />
     </Row>
 
+    <!-- Bottom row URL mode -->
+    <Row android:keyboardMode="@integer/keyboard_mode_url" android:rowEdgeFlags="bottom">
+        <Key android:codes="-9" android:keyWidth="10.5%p" android:keyEdgeFlags="left" />
+        <Key android:codes="64" android:horizontalGap="2%p" android:keyLabel="\@" android:popupCharacters="!/?&amp;" />
+        <Key android:codes="58" android:keyLabel=":" android:popupCharacters=";" />
+        <Key android:codes="32" android:horizontalGap="2.5%p" android:keyWidth="25%p" />
+        <Key android:codes="46,58" android:horizontalGap="2.5%p" android:keyLabel="." android:popupCharacters=",()'-_" />
+        <Key android:codes="47" android:keyLabel="/" />
+        <Key android:codes="10" android:horizontalGap="2.5%p" android:keyWidth="15%p" android:keyEdgeFlags="right" ask:longPressCode="-100" />
+    </Row>
+
+    <!-- Bottom row EMAIL mode -->
+    <Row android:keyboardMode="@integer/keyboard_mode_email" android:rowEdgeFlags="bottom">
+        <Key android:codes="-9" android:keyWidth="10.5%p" android:keyEdgeFlags="left" />
+        <Key android:codes="64" android:horizontalGap="2%p" android:keyLabel="\@" android:popupCharacters="!/?&amp;" />
+        <Key android:codes="58" android:keyLabel=":" android:popupCharacters=";" />
+        <Key android:codes="32" android:horizontalGap="2.5%p" android:keyWidth="25%p" />
+        <Key android:codes="46,58" android:horizontalGap="2.5%p" android:keyLabel="." android:popupCharacters=",()'-_" />
+        <Key android:codes="47" android:keyLabel="/" />
+        <Key android:codes="10" android:horizontalGap="2.5%p" android:keyWidth="15%p" android:keyEdgeFlags="right" ask:longPressCode="-100" />
+    </Row>
 </Keyboard>
